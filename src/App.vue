@@ -138,6 +138,11 @@ export default {
   },
 
   async mounted() {
+    // if (!(await this.$magic.isLoggedIn())) {
+    //   await this.$magic.loginWithMagic();
+    // } else {
+    //   console.log(await this.$magic.getUser());
+    // }
     window.store = this.$store;
     window.app = this;
     if (!this.settings.authenticatedAccount) { this.$router.push({ path: '/' }); }

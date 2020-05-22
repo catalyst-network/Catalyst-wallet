@@ -19,6 +19,7 @@ module.exports = (ctx) => {
       'AccountInitializer',
       'vClipboard',
       'QRScanner',
+      'Magic',
     ],
     css: ['app.styl'],
     extras: [
