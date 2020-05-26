@@ -204,7 +204,11 @@ export default {
   // Setup
   cryptoWallet: 'Testnet Wallet',
   seedSetup: 'Seed Setup',
-  createRecoverySeed: ' We\'re going to create a recovery seed for you that can be used to restore your wallets.',
+  accountRecovery: 'Account Recovery',
+  emailRecovery: 'Email Recovery',
+  advancedRecovery: 'Advanced Recovery',
+  advancedRecoveryDesc: 'Write down a 12 word recovery phrase and store it securely.',
+  createRecoverySeed: 'We\'re going to create a recovery seed for you that can be used to restore your wallets.',
   goOffline: 'First we need to go offline, put your phone into airplane mode, and make sure all network connections are switched off.',
   pinConfirmationTitle: 'Pin Confirmation',
   confirmPin: 'Confirm your pin',

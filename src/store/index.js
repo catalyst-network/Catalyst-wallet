@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VuexORM from '@vuex-orm/core';
-import VuexPersistence from 'vuex-persist';
+// import VuexPersistence from 'vuex-persist';
 import VuexORMLoki from '@atlascity/vuex-orm-plugin-lokijs';
 
 // import entities.
@@ -28,10 +28,10 @@ Vue.use(Vuex);
 // Setup ORM database.
 const database = new VuexORM.Database();
 
-const vuexLocal = new VuexPersistence({
-  key: 'Catalyst-Wallet',
-  storage: window.localStorage,
-});
+// const vuexLocal = new VuexPersistence({
+//   key: 'Catalyst-Wallet',
+//   storage: window.localStorage,
+// });
 
 database.register(Account, {});
 database.register(Address, {});
@@ -75,7 +75,7 @@ const store = new Vuex.Store({
     qrcode,
     modals,
   },
-  plugins: [VuexORM.install(database), vuexLocal.plugin],
+  plugins: [VuexORM.install(database)],
 });
 
 function hydrationCompletedCallback() {

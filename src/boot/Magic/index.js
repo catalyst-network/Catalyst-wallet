@@ -1,24 +1,30 @@
 import { Magic } from 'magic-sdk';
+import { ethers } from 'ethers';
+import bip39 from 'bip39';
 
-const m = new Magic('pk_test_4431477E0967CCCC', 'kovan'); // ✨
+const m = new Magic('pk_test_4431477E0967CCCC'); // ✨
 
 m.preload().then(() => { return console.log('Magic <iframe> loaded.'); });
 
 const magic = {
-  async loginWithMagic() {
+  async login(email) {
     // log in a user by their email
     try {
-      await m.auth.loginWithMagicLink({ email: 'hello@example.com' });
+      await m.auth.loginWithMagicLink({ email });
     } catch {
     // Handle errors if required!
     }
   },
 
+  async logout() {
+    await m.user.logout();
+  },
+
   async isLoggedIn() {
     try {
-      const isLoggedIn = await m.user.isLoggedIn();
-      console.log(isLoggedIn); // => `true` or `false`
+      return await m.user.isLoggedIn();
     } catch {
+      return false;
       // Handle errors if required!
     }
   },
@@ -26,11 +32,26 @@ const magic = {
   async getUser() {
     // Assumes a user is already logged in
     try {
-      const { email, publicAddress } = await m.user.getMetadata();
-      console.log(email, publicAddress);
+      return await m.user.getMetadata();
     } catch {
       // Handle errors if required!
+      return false;
     }
+  },
+
+  async getProvider() {
+    const provider = new ethers.providers.Web3Provider(m.rpcProvider);
+    return provider.getSigner();
+  },
+
+  async getMnemonic() {
+    const provider = await this.getProvider();
+    const entropy = await provider.signMessage('catalyst');
+    const entropyBuffer = Buffer.from(entropy);
+    const maxBytes = 32;
+    const mnemonic = bip39.entropyToMnemonic(entropyBuffer.slice(0, maxBytes));
+    console.log(mnemonic);
+    return mnemonic;
   },
 };
 
