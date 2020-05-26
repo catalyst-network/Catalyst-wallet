@@ -1,8 +1,17 @@
 <template>
   <div>
-    <h1 class="setup q-mb-xl">
-      {{ $t('accountRecovery') }}
-    </h1>
+    <div
+      class="q-mb-xl"
+      style="margin-top: -2.5rem"
+    >
+      <h1 class="setup ">
+        {{ $t('accountRecovery') }}
+      </h1>
+      <div class="text-center">
+        Select an account recovery method
+      </div>
+    </div>
+
     <div class="container q-px-md">
       <div>
         <div class="q-mb-md q-pl-sm">
@@ -89,7 +98,7 @@
         placeholder="email@example.com"
       />
     </div> -->
-      <div class="btns-wrapper">
+      <div class="btns-wrapper q-mt-lg">
         <q-btn
           color="primary"
           text-color="blueish"
@@ -105,7 +114,7 @@
 import { mapState } from 'vuex';
 import {
   required,
-  alphaNum,
+  email,
 } from 'vuelidate/lib/validators';
 
 export default {
@@ -117,9 +126,9 @@ export default {
     };
   },
   validations: {
-    accountName: {
+    accountEmail: {
       required,
-      alphaNum,
+      email,
     },
   },
   computed: {
@@ -129,6 +138,16 @@ export default {
   },
   methods: {
     async validate() {
+      if (!this.$v.accountEmail.required) {
+        this.$toast.create(10, this.$t('enterAccountEmail'), this.delay.normal);
+        return false;
+      }
+
+      if (!this.$v.accountName.email) {
+        this.$toast.create(10, this.$t('invalidAccountEmail'), this.delay.normal);
+        return false;
+      }
+
       if (this.$magic.isLoggedIn()) {
         this.$magic.logout();
       }
@@ -138,31 +157,7 @@ export default {
       this.$store.dispatch('setup/setSeed', mnemonicArray);
       this.$store.dispatch('setup/setSeedString', mnemonic);
       this.$router.push({ path: '/setup/4' });
-
-
-      // if (!this.$v.accountName.required) {
-      //   this.$toast.create(10, this.$t('enterAccountName'), this.delay.normal);
-      //   return false;
-      // }
-
-      // if (!this.$v.accountName.alphaNum) {
-      //   this.$toast.create(10, this.$t('invalidAccountName'), this.delay.normal);
-      //   return false;
-      // }
-
-      // const accounts = this.$store.getters['entities/account/query']().get();
-      // const nameAlreadyInUse = accounts.find((account) => {
-      //   return account.name === this.accountName;
-      // });
-
-      // if (nameAlreadyInUse) {
-      //   this.$toast.create(10, this.$t('accountNameTaken'), this.delay.normal);
-      //   return false;
-      // }
-
-      // this.$store.dispatch('setup/setAccountName', this.accountName);
-      // this.$store.dispatch('modals/setTermsModalOpened', true);
-      // return true;
+      return true;
     },
   },
 };
