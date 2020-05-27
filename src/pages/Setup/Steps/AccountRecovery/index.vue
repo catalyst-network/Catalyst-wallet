@@ -8,7 +8,7 @@
         {{ $t('accountRecovery') }}
       </h1>
       <div class="text-center">
-        Select an account recovery method
+        {{ $t('accountRecoveryDesc') }}
       </div>
     </div>
 
@@ -16,10 +16,10 @@
       <div>
         <div class="q-mb-md q-pl-sm">
           <div class="text-h6 text-weight-bold">
-            {{ $t('Basic Security') }}
+            {{ $t('basicSecurity') }}
           </div>
           <div class="text-caption">
-            Enter your email address and receive a magic link
+            {{ $t('basicSecurityDesc') }}
           </div>
         </div>
         <q-list>
@@ -39,7 +39,7 @@
             <q-item-section class=" recovery-option q-pa-md">
               <q-item-label>
                 <q-icon name="fas fa-at" />
-                Email Recovery
+                {{ $t('emailRecovery') }}
               </q-item-label>
               <div class="account-email-input-wrapper">
                 <q-input
@@ -49,7 +49,7 @@
                   dark
                   dense
                   color="primary"
-                  placeholder="email@example.com"
+                  :placeholder="$t('emailPlaceholder')"
                 />
               </div>
             </q-item-section>
@@ -59,10 +59,10 @@
       <div class="q-mt-xl">
         <div class="q-mb-md q-pl-sm">
           <div class="text-h6 text-weight-bold">
-            {{ $t('Advanced Security') }}
+            {{ $t('advancedSecurity') }}
           </div>
           <div class="text-caption">
-            Write down a 12 word recovery phrase and store it securely.
+            {{ $t('advancedSecurityDesc') }}
           </div>
         </div>
         <q-list>
@@ -82,7 +82,7 @@
               <q-item-label>
                 <q-icon name="far fa-list-alt" />
 
-                Recovery Phrase
+                {{ $t('recoveryPhrase') }}
               </q-item-label>
             </q-item-section>
           </q-item>
@@ -102,7 +102,7 @@
         <q-btn
           color="primary"
           text-color="blueish"
-          label="Next"
+          :label="$t('next')"
           @click="validate"
         />
       </div>
