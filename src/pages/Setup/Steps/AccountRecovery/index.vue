@@ -138,6 +138,10 @@ export default {
   },
   methods: {
     async validate() {
+      if (this.recoveryType === 'recoveryPhrase') {
+        this.$router.push({ path: '/setup/2' });
+        return true;
+      }
       if (!this.$v.accountEmail.required) {
         this.$toast.create(10, this.$t('enterAccountEmail'), this.delay.normal);
         return false;

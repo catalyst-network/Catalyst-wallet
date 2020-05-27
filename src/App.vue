@@ -140,7 +140,7 @@ export default {
   async mounted() {
     window.store = this.$store;
     window.app = this;
-    if (!this.settings.authenticatedAccount) { this.$router.push({ path: '/setup/8' }); }
+    if (!this.settings.authenticatedAccount) { this.$router.push({ path: '/' }); }
   },
 
   methods: {
