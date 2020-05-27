@@ -1,13 +1,12 @@
-# acmobilewallet
-Current Status
-[![pipeline status](http://gitlab.engr.atlas/atlas/acmobilewallet/badges/master/pipeline.svg)](http://gitlab.engr.atlas/atlas/acmobilewallet/commits/develop)
+# Catalyst Wallet
+
 
 ## Prerequisites
 You will need to have Node.js `>= 8.11.0` installed on your machine.
 
 ## Installing
 In the directory where you want to keep the repository, run
-`git clone git@gitlab.engr.atlas:atlas/acmobilewallet.git`
+`git clone git@github.com:catalyst-network/Catalyst-wallet.git`
 
 In the root of the directory run
 `npm install`
