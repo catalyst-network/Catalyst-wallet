@@ -211,6 +211,8 @@ export default {
   basicSecurity: 'Basic Security',
   basicSecurityDesc: 'Enter your email address and receive a magic link',
   emailPlaceholder: 'email@example.com',
+  enterAccountEmail: 'Enter an email address',
+  invalidAccountEmail: 'Enter a valid email address',
   advancedSecurity: 'Advanced Security',
   advancedSecurityDesc: 'Write down a 12 word recovery phrase and store it securely.',
   createRecoverySeed: 'We\'re going to create a recovery seed for you that can be used to restore your wallets.',

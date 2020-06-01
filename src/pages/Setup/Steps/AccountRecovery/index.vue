@@ -155,13 +155,16 @@ export default {
       if (this.$magic.isLoggedIn()) {
         this.$magic.logout();
       }
-      console.log(this.accountEmail);
+      this.$store.dispatch('settings/setLoading', true);
+
       await this.$magic.login(this.accountEmail);
       const mnemonic = await this.$magic.getMnemonic();
       const mnemonicArray = mnemonic.split(' ');
       this.$store.dispatch('setup/setSeed', mnemonicArray);
       this.$store.dispatch('setup/setSeedString', mnemonic);
       this.$router.push({ path: '/setup/4' });
+      this.$store.dispatch('settings/setLoading', false);
+
       return true;
     },
   },
