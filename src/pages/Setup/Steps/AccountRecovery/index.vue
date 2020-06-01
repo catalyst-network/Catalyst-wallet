@@ -147,7 +147,7 @@ export default {
         return false;
       }
 
-      if (!this.$v.accountName.email) {
+      if (!this.$v.accountEmail.email) {
         this.$toast.create(10, this.$t('invalidAccountEmail'), this.delay.normal);
         return false;
       }
@@ -155,6 +155,7 @@ export default {
       if (this.$magic.isLoggedIn()) {
         this.$magic.logout();
       }
+      console.log(this.accountEmail);
       await this.$magic.login(this.accountEmail);
       const mnemonic = await this.$magic.getMnemonic();
       const mnemonicArray = mnemonic.split(' ');
