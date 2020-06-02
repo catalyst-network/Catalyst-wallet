@@ -7,6 +7,7 @@
 <script>
 import Splash from '@/pages/Setup/Steps/Splash/index.vue';
 import AccountName from '@/pages/Setup/Steps/AccountName/index.vue';
+import AccountRecovery from '@/pages/Setup/Steps/AccountRecovery/index.vue';
 import Pin from '@/pages/Setup/Steps/Pin';
 import PinConfirm from '@/pages/Setup/Steps/Pin/Confirm';
 import Restore from '@/pages/Setup/Steps/Restore';
@@ -20,6 +21,7 @@ export default {
   components: {
     Splash,
     AccountName,
+    AccountRecovery,
     Pin,
     PinConfirm,
     Restore,
@@ -40,6 +42,7 @@ export default {
         PinConfirm,
         AccountName,
         Complete,
+        AccountRecovery,
       ],
     };
   },

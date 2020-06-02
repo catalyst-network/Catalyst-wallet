@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VuexORM from '@vuex-orm/core';
+// import VuexPersistence from 'vuex-persist';
 import VuexORMLoki from '@atlascity/vuex-orm-plugin-lokijs';
 
 // import entities.
@@ -26,6 +27,11 @@ Vue.use(Vuex);
 
 // Setup ORM database.
 const database = new VuexORM.Database();
+
+// const vuexLocal = new VuexPersistence({
+//   key: 'Catalyst-Wallet',
+//   storage: window.localStorage,
+// });
 
 database.register(Account, {});
 database.register(Address, {});

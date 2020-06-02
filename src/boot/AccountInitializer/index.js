@@ -20,12 +20,10 @@ const accountInitializer = {
       locale: setup.accountLocale || accounts[0].locale,
       node: setup.accountIpNode,
     };
-
     const result = await Account.$insert({
       data,
       password,
     });
-
     return result.account[0];
   },
 
@@ -48,7 +46,7 @@ const accountInitializer = {
         promises.push(new Promise(async (resolve) => {
           const coinSDK = SDK.SDKFactory.createSDK(coin.sdk);
           wallet.hdWallet = await coinSDK.generateHDWallet(
-            Object.values(setup.seed).join(' ').trim(),
+            setup.seedString,
             coin.network,
           );
           await Wallet.$insert({ data: wallet, password });

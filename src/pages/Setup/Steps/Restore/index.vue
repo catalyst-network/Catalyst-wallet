@@ -83,6 +83,8 @@ export default {
       }
 
       this.$store.dispatch('setup/setSeed', seedPhrase);
+      this.$store.dispatch('setup/setSeedString', lowercase);
+
       this.$router.push({ path: '/setup/4' });
       return true;
     },
