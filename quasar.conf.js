@@ -58,6 +58,7 @@ module.exports = (ctx) => {
     },
     devServer: {
       open: true,
+      https: true,
     },
     framework: {
       components: [
@@ -105,6 +106,8 @@ module.exports = (ctx) => {
         'QCardActions',
         'QSlideItem',
         'QAvatar',
+        'QInnerLoading',
+        'QSpinner',
       ],
       directives: ['Ripple', 'ClosePopup'],
       // Quasar plugins

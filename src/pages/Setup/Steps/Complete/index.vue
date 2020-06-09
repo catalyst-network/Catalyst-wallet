@@ -132,14 +132,11 @@ export default {
      * complete setup and store account entity.
      */
     async complete() {
-      console.log('complete: ');
-
       this.$store.dispatch('settings/setLoading', true);
 
       setTimeout(async () => {
         try {
           const account = await this.accountInitializer.createAccount(this.setup);
-          console.log('account: ', account);
           this.$store.dispatch('settings/setSelectedAccount', this.setup.accountName);
           await this.accountInitializer.createWallets(this.setup, account.id, this.supportedCoins);
           await this.accountInitializer.createERC20Wallets(
@@ -153,7 +150,6 @@ export default {
           const wallet = Wallet.query().where((wal) => {
             return wal.name === 'Catalyst' && wal.account_id === account.id;
           }).get()[0];
-          console.log('wallet: ', wallet);
 
           const initializedWallet = wallet.hdWallet;
 

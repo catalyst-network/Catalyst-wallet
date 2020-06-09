@@ -107,6 +107,12 @@
         />
       </div>
     </div>
+    <q-inner-loading :showing="visible">
+      <q-spinner
+        size="50px"
+        color="primary"
+      />
+    </q-inner-loading>
   </div>
 </template>
 
@@ -123,6 +129,7 @@ export default {
     return {
       accountEmail: '',
       recoveryType: 'email',
+      visible: false,
     };
   },
   validations: {
@@ -155,15 +162,15 @@ export default {
       if (this.$magic.isLoggedIn()) {
         this.$magic.logout();
       }
-      this.$store.dispatch('settings/setLoading', true);
 
+      this.visible = true;
       await this.$magic.login(this.accountEmail);
       const mnemonic = await this.$magic.getMnemonic();
       const mnemonicArray = mnemonic.split(' ');
       this.$store.dispatch('setup/setSeed', mnemonicArray);
       this.$store.dispatch('setup/setSeedString', mnemonic);
       this.$router.push({ path: '/setup/4' });
-      this.$store.dispatch('settings/setLoading', false);
+      this.visible = false;
 
       return true;
     },
