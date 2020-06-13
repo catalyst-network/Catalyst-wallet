@@ -44,7 +44,7 @@ const accountInitializer = {
       };
       if (coin.sdk !== 'ERC20') {
         promises.push(new Promise(async (resolve) => {
-          const coinSDK = SDK.SDKFactory.createSDK(coin.sdk);
+          const coinSDK = SDK.SDKFactory.createSDK(coin.sdk, { provider: 'https://api.catalystnet.org:2053/api/eth/request' });
           wallet.hdWallet = await coinSDK.generateHDWallet(
             setup.seedString,
             coin.network,
@@ -74,8 +74,8 @@ const accountInitializer = {
           network: coin.network,
         };
         promises.push(new Promise(async (resolve) => {
-          const coinSDK = SDK.SDKFactory.createSDK(coin.sdk);
-          const parentSDK = await SDK.SDKFactory.createSDK(coin.parentSdk);
+          const coinSDK = SDK.SDKFactory.createSDK(coin.sdk, { provider: 'https://api.catalystnet.org:2053/api/eth/request' });
+          const parentSDK = await SDK.SDKFactory.createSDK(coin.parentSdk, { provider: 'https://api.catalystnet.org:2053/api/eth/request' });
           const parentWallet = await parentSDK.generateHDWallet(
             Object.values(setup.seed).join(' ').trim(),
             coin.network,

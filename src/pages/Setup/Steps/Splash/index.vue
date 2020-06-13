@@ -2,9 +2,9 @@
   <div class="container splash">
     <div class="splash-logo">
       <h1>{{ $t('cryptoWallet') }}</h1>
-      <p class="splash-slogan">
+      <!-- <p class="splash-slogan">
         {{ $t('splashSlogan') }}
-      </p>
+      </p> -->
     </div>
 
     <div class="btns-wrapper">

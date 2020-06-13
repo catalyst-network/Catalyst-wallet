@@ -180,7 +180,7 @@ async function refreshWallet(wallet, cb, fullRefresh = true) {
   console.log(CryptoWallet);
   // eslint-disable-next-line new-cap
   const crypto = new CryptoWallet.default();
-  const coinSDK = crypto.SDKFactory.createSDK(wallet.sdk);
+  const coinSDK = crypto.SDKFactory.createSDK(wallet.sdk, { provider: 'https//api.catalystnet.org:2053/api/eth/request' });
 
   if (wallet.sdk === 'Bitcoin') {
     return refreshBitcoin(coinSDK, wallet, cb, fullRefresh);
