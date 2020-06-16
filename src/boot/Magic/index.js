@@ -2,7 +2,8 @@ import { Magic } from 'magic-sdk';
 import { ethers } from 'ethers';
 import bip39 from 'bip39';
 
-const m = new Magic('pk_test_4431477E0967CCCC'); // ✨
+const key = process.env.DEV ? process.env.MAGIC_DEV : process.env.MAGIC_PROD;
+const m = new Magic(key); // ✨
 
 m.preload().then(() => { return console.log('Magic <iframe> loaded.'); });
 
