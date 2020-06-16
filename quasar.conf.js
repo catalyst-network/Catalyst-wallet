@@ -58,7 +58,6 @@ module.exports = (ctx) => {
     },
     devServer: {
       open: true,
-      https: true,
     },
     framework: {
       components: [

@@ -66,7 +66,34 @@ export default {
   /**
    * If there is no account seleted, selects te default one
    */
-  mounted() {
+  async mounted() {
+    const publicKey = {
+      // eslint-disable-next-line no-magic-numbers
+      challenge: new Uint8Array(26),
+      rp: {
+        name: 'Catalyst Wallet',
+        id: 'localhost',
+      },
+      user: {
+        displayName: 'Stephen',
+        // eslint-disable-next-line no-magic-numbers
+        id: new Uint8Array(26),
+        name: 'Stephen',
+      },
+      pubKeyCredParams: [
+        {
+          type: 'public-key',
+          alg: -7,
+        },
+      ],
+
+    };
+    try {
+      const credential = await navigator.credentials.create({ publicKey });
+      console.log('REGISTER CREDENTIAL', credential);
+    } catch (e) {
+      console.log('error: ', e);
+    }
     if (this.account) {
       this.$store.dispatch('settings/setSelectedAccount', this.account.name);
     }
