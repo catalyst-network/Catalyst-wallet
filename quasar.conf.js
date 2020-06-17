@@ -123,8 +123,8 @@ module.exports = (ctx) => {
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
         name: 'Catalyst Wallet',
-        // short_name: 'Catalyst Node Dashboard',
-        // description: '.',
+        short_name: 'Catalyst-Wallet',
+        description: 'Catalyst testnet wallet',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#0a2d3e',
