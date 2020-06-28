@@ -21,7 +21,6 @@ const auth = {
           connection: '',
           domain: 'https://atlascity.eu.auth0.com',
           verifierIdField: 'name',
-          login_hint: '+447843812196',
         },
       });
 

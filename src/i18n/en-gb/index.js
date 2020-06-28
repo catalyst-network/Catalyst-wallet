@@ -207,6 +207,7 @@ export default {
   accountRecovery: 'Account Recovery',
   accountRecoveryDesc: 'Select an account recovery method',
   emailRecovery: 'Email Recovery',
+  smsRecovery: 'SMS Recovery',
   advancedRecovery: 'Advanced Recovery',
   basicSecurity: 'Basic Security',
   basicSecurityDesc: 'Enter your email address and receive a magic link',
