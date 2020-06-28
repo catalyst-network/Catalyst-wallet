@@ -33,9 +33,6 @@
      justify-content: space-around;
    }
 
-   .yellow {
-     color: black;
-   }
 
    .q-field--error .q-field__bottom .q-field__messages {
      color: white;
@@ -69,7 +66,7 @@
           <h1 class="setup">
             Verify your phone number
           </h1>
-          Cata;yst will send you an sms message to verify your phone number. Enter your phone number including a country code:
+          Catalyst will send you an sms message to verify your phone number. Enter your phone number including a country code:
         
         <div class="q-mt-md q-mb-sm q-px-lg">
           <q-input
@@ -96,7 +93,7 @@
             ref="pin"
             autofocus
             dark
-            type="text"
+            type="tel"
             mask="# # # # # #"
             fill-mask="-"
             input-class="text-center text-h4"
@@ -198,17 +195,20 @@
           },
           sendCode() {
             const number = this.validateNumber();
-            if (number) {
-              this.webAuth.passwordlessStart({
-               connection: 'sms',
-               send: 'code',
-               phoneNumber: this.number,
-              }, function (err,res) {
-              // handle errors or continue
-              if (err) this.errorMessage = 'Failed to send code. Is this a valid number?';
-              });
+            // if (number) {
+            //   this.webAuth.passwordlessStart({
+            //    connection: 'sms',
+            //    send: 'code',
+            //    phoneNumber: this.number,
+            //   }, function (err,res) {
+            //   // handle errors or continue
+            //   if (err) {
+            //     this.isValid = false;
+            //     this.errorMessage = 'Failed to send code. Is this a valid number?';
+            //   } 
+            //   });
               this.showVerify = true;
-            }
+            // }
           },
           login() {
             this.loading= true;
@@ -223,7 +223,10 @@
                 verificationCode: code,
               }, function (err) {
                 // handle errors or continue
-                if (err) this.errorMessage = 'invalid code';
+                if (err) { 
+                  this.isValidCode = false;
+                  this.errorMessage = 'invalid code'; 
+                };
               });
             } else {
               this.errorMessage = 'verification code should be 6 digits'
