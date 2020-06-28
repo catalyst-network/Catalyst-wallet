@@ -2,6 +2,7 @@
   <div>
     <q-dialog
       v-model="termsModalOpened"
+      persistent
       :maximized="true"
       transition-show="slide-up"
       transition-hide="slide-down"

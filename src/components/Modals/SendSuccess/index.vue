@@ -2,6 +2,7 @@
   <div>
     <q-dialog
       v-model="sendSuccessModalOpened"
+      persistent
       no-route-dismiss
       :maximized="true"
       transition-show="slide-up"
