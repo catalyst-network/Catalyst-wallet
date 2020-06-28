@@ -20,6 +20,7 @@ module.exports = (ctx) => {
       'vClipboard',
       'QRScanner',
       'Magic',
+      'addressbar-color'
     ],
     css: ['app.styl'],
     extras: [
@@ -111,7 +112,7 @@ module.exports = (ctx) => {
       ],
       directives: ['Ripple', 'ClosePopup'],
       // Quasar plugins
-      plugins: ['Notify', 'Dialog', 'BottomSheet'],
+      plugins: ['Notify', 'Dialog', 'BottomSheet', 'AddressbarColor'],
       // iconSet: 'material-icons'
       lang: 'en-gb',
     },
@@ -122,7 +123,7 @@ module.exports = (ctx) => {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
-        name: 'Catalyst Wallet',
+        name: 'CatalystWallet',
         short_name: 'Catalyst-Wallet',
         description: 'Catalyst testnet wallet',
         display: 'standalone',
