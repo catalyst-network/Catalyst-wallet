@@ -122,7 +122,7 @@
     </div> -->
       <div class="btns-wrapper q-mt-lg">
         <q-btn
-          color="yellow"
+          color="primary"
           text-color="blueish"
           :label="$t('next')"
           @click="validate"
