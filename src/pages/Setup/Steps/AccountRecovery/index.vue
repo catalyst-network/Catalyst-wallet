@@ -14,7 +14,7 @@
 
     <div class="container q-px-md">
       <div>
-        <div class="q-mb-md q-pl-sm">
+        <div class="q-pl-sm">
           <div class="text-h6 text-weight-bold">
             {{ $t('basicSecurity') }}
           </div>
@@ -22,7 +22,7 @@
             {{ $t('basicSecurityDesc') }}
           </div>
         </div>
-        <q-list class="q-gutter-y-md">
+        <q-list class="q-mt-md q-gutter-y-md">
           <q-item>
             <q-item-section
               avatar
@@ -58,7 +58,7 @@
             <q-item-section
               avatar
               top
-              class="q-pt-md"
+              class="q-pt-xs"
             >
               <q-radio
                 v-model="recoveryType"

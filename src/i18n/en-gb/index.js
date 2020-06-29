@@ -210,7 +210,7 @@ export default {
   smsRecovery: 'SMS Recovery',
   advancedRecovery: 'Advanced Recovery',
   basicSecurity: 'Basic Security',
-  basicSecurityDesc: 'Enter your email address and receive a magic link',
+  basicSecurityDesc: 'Enter your email or mobile number to recover your account',
   emailPlaceholder: 'email@example.com',
   enterAccountEmail: 'Enter an email address',
   invalidAccountEmail: 'Enter a valid email address',
