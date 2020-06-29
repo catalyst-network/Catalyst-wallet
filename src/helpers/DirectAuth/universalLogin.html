@@ -195,20 +195,20 @@
           },
           sendCode() {
             const number = this.validateNumber();
-            // if (number) {
-            //   this.webAuth.passwordlessStart({
-            //    connection: 'sms',
-            //    send: 'code',
-            //    phoneNumber: this.number,
-            //   }, function (err,res) {
-            //   // handle errors or continue
-            //   if (err) {
-            //     this.isValid = false;
-            //     this.errorMessage = 'Failed to send code. Is this a valid number?';
-            //   } 
-            //   });
+            if (number) {
+              this.webAuth.passwordlessStart({
+               connection: 'sms',
+               send: 'code',
+               phoneNumber: this.number,
+              }, function (err,res) {
+              // handle errors or continue
+              if (err) {
+                this.isValid = false;
+                this.errorMessage = 'Failed to send code. Is this a valid number?';
+              } 
+              });
               this.showVerify = true;
-            // }
+            }
           },
           login() {
             this.loading= true;
