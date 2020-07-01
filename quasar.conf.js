@@ -46,6 +46,11 @@ module.exports = (ctx) => {
         };
 
         cfg.output.webassemblyModuleFilename = '[hash].wasm';
+
+        cfg.optimization = {
+          minimize: false,
+          nodeEnv: 'development',
+        };
       },
       chainWebpack: config => {
         config.output
